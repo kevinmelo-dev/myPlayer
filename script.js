@@ -1,3 +1,4 @@
+// CRIAÇÃO DE VARIÁVEIS PARA OS ELEMENTOS HTML
 let timeline = document.getElementById('timeline');
 let tempoAtual = document.getElementById('atual');
 let tempoTotal = document.getElementById('total');
@@ -8,6 +9,7 @@ let nomeMusica = document.getElementById('nome-musica');
 let nomeArtista = document.getElementById('nome-artista');
 let capa = document.getElementById('capa');
 
+// ARRAYS DE REFERÊNCIA
 let playlist = [
     "musicas/Mac Ayres - The Devil's in The Details.mp3",
     "musicas/H.E.R. - Going.mp3",
@@ -40,20 +42,24 @@ let capas = [
     "imagens/oterno.png"
 ];
 
+// CRIAÇÃO DE OBJETO DE ÁUDIO
 contagem = 0;
 audio = new Audio();
 audio.src = playlist[contagem];
 audio.loop = false;
 
+// EXIBIÇÃO DOS ELEMENTOS DAS ARRAYS POR INDEX
 capa.src = capas[contagem];
 nomeMusica.innerHTML = titulos[contagem];
 nomeArtista.innerHTML = artistas[contagem];
 
+// CRIAÇÃO DE EVENTOS PARA BOTÕES DE MUDANÇA DE MÚSICA, PLAY, RETORNO E AVANÇO DA TIMELINE
 botaoPlay.addEventListener("click", playPause);
 proxima.addEventListener("click", proximaMusica);
 anterior.addEventListener("click", musicaAnterior);
 audio.addEventListener("timeupdate", atualizarContagem);
 
+// FUNÇÃO DE PLAY E PAUSE
 function playPause(){
     if(audio.paused){
         audio.play();
@@ -65,6 +71,7 @@ function playPause(){
     }
 }
 
+// MODIFICAÇÕES NA TELA APÓS ALTERAÇÃO DE ÁUDIO
 function modificacoes(){
     nomeMusica.innerHTML = titulos[contagem];
     nomeArtista.innerHTML = artistas[contagem];
@@ -74,6 +81,7 @@ function modificacoes(){
     audio.play();
 }
 
+// FUNÇÃO DE MUDANÇA PARA PRÓXIMA MÚSICA E MÚSICA ANTERIOR
 function proximaMusica(){
     contagem++;
     if(contagem > playlist.length - 1){
@@ -90,12 +98,13 @@ function musicaAnterior(){
     modificacoes();
 }
 
-
+// EVENTO QUE SINCRONIZA POSIÇÃO DA TIMELINE COM O TEMPO DE ÁUDIO 
 timeline.onchange = function(){
     timeline_position = audio.duration * (timeline.value / 100);
     audio.currentTime = timeline_position;
 }
 
+// FUNÇÃO QUE MODIFICA E EXIBE A DURAÇÃO ATUAL E TOTAL DO ÁUDIO
 function atualizarContagem(){
     if(audio.duration){
         let reset = audio.currentTime * (100 / audio.duration);
