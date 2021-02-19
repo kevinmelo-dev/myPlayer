@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
+    <title>myPlayer</title>
+</head>
+<body>
+    <div class="container">
+        <div class="topo">
+            <img src="imagens/logo.png" class="logo">
+        </div>
+
+        <div class="player">
+
+            <div class="tela">
+                <img id="capa">
+            </div>
+
+            <div class="rolagem">
+                <input type="range" id="timeline" min="0" max="100" value="0">
+            </div>
+
+            <div class="duracao">
+                <p id="atual">00:00</p>
+                <p id="total">00:00</p>
+            </div>
+
+            <div class="titulo">
+                <p id="nome-musica">Musica</p>
+                <p id="nome-artista">Artista</p>
+            </div>
+
+            <div class="botoes">
+                <a href="#" id="anterior"><i class="fas fa-step-backward"></i></a>
+                <a href="#" id="play-pause"><i class="fas fa-play-circle fa-lg"></i></a>
+                <a href="#" id="proxima"><i class="fas fa-step-forward"></i></a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
